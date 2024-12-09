@@ -41,11 +41,13 @@ const FeaturedPosts = () => {
                 <p className="text-[#737373]">New</p>
               </div>
               <p className="font-normal text-[20px] leading-[30px] text-[#252B42] tracking-[0.2px]">
-                Loudest à la Madison #1 (L'integral)
-              </p>
-              <p className="w-[280px] h-[60px] text-[14px] font-normal leading-[20px] text-[#737373] tracking-[0.2px]">
-                We focus on ergonomics and meeting you where you work. It's only a keystroke away.
-              </p>
+           Loudest &agrave; la Madison #1 (L&apos;integral)
+           </p>
+
+           <p className="w-[280px] h-[60px] text-[14px] font-normal leading-[20px] text-[#737373] tracking-[0.2px]">
+         We focus on ergonomics and meeting you where you work. It&apos;s only a keystroke away.
+      </p>
+
               <div className="flex justify-between py-[15px] w-[298px] h-[46px]">
                 <div className="gap-[5px] flex">
                   {/* Clock Icon */}
@@ -76,11 +78,13 @@ const FeaturedPosts = () => {
                 <p className="text-[#737373]">New</p>
               </div>
               <p className="font-normal text-[20px] leading-[30px] text-[#252B42] tracking-[0.2px]">
-                Loudest à la Madison #1 (L'integral)
-              </p>
-              <p className="w-[280px] h-[60px] text-[14px] font-normal leading-[20px] text-[#737373] tracking-[0.2px]">
-                We focus on ergonomics and meeting you where you work. It's only a keystroke away.
-              </p>
+           Loudest à la Madison #1 (L&apos;integral)
+</p>
+
+<p className="w-[280px] h-[60px] text-[14px] font-normal leading-[20px] text-[#737373] tracking-[0.2px]">
+  We focus on ergonomics and meeting you where you work. It&apos;s only a keystroke away.
+</p>
+
               <div className="flex justify-between py-[15px] w-[298px] h-[46px]">
                 <div className="gap-[5px] flex">
                   {/* Clock Icon */}
@@ -111,11 +115,13 @@ const FeaturedPosts = () => {
                 <p className="text-[#737373]">New</p>
               </div>
               <p className="font-normal text-[20px] leading-[30px] text-[#252B42] tracking-[0.2px]">
-                Loudest à la Madison #1 (L'integral)
-              </p>
-              <p className="w-[280px] h-[60px] text-[14px] font-normal leading-[20px] text-[#737373] tracking-[0.2px]">
-                We focus on ergonomics and meeting you where you work. It's only a keystroke away.
-              </p>
+  Loudest à la Madison #1 (L&apos;integral)
+</p>
+
+<p className="w-[280px] h-[60px] text-[14px] font-normal leading-[20px] text-[#737373] tracking-[0.2px]">
+  We focus on ergonomics and meeting you where you work. It&apos;s only a keystroke away.
+</p>
+
               <div className="flex justify-between py-[15px] w-[298px] h-[46px]">
                 <div className="gap-[5px] flex">
                   {/* Clock Icon */}
