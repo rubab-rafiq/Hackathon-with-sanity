@@ -5,7 +5,7 @@ const ClassicProduct = () => {
   return (
     <div className='lg:h-[716px] lg:w-auto relative h-[1366px]  bg-green-600 '>
     
-    <div className='lg:w-[1036px] lg:h-[711px] lg:left-[209px] left-[30px] absolute gap-[80px]  py-[112px] w-[414px] h-[1252px]'>
+    <div className='lg:w-[1036px] lg:h-[711px] lg:left-[209px]  left-[30px] absolute gap-[80px]  py-[112px] w-[414px] h-[1252px]'>
       <div className=' gap-[30px]   h-[1238px] w-[1049px]  grid grid-flow-cols-1 lg:grid-cols-2'>
         <div className='lg:w-[509px] lg:h-[432px] lg:gap-[30px]  h-[429px] gap-[35px] text-[#FFFFFF] flex flex-col'>
           {/* Adjusting the "SUMMER 2020" text for mobile */}
@@ -41,6 +41,4 @@ const ClassicProduct = () => {
 }
 
 export default ClassicProduct
-
-
 
