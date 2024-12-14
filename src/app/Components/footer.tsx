@@ -6,25 +6,29 @@ import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg
 const Footer = () => {
   return (
     
-    <div className='h-[1342px] w-[1342px] bg-[#FFFFFF] lg:w-[auto] lg:h-[488px] relative'>
-      <div className='w-auto h-[173px] bg-[#FAFAFA] lg:w-[full] lg:h-[142px] relative'>
-        <div className=' w-[325px] h-[175.5px]  pt-10 pb-10 lg:w-[1050px] lg:absolute lg:left-[195px] lg:h-[138px]'>
-          <div className='w-[243px] h-[93.5px] left-[44px]  absolute mb-[11.5px] gap-[11.5px] flex flex-col lg:flex-row lg:gap-[577.5px] lg:justify-between'>
-            {/* Logo Section */}
-            <div className='flex flex-col lg:flex-row '>
-              <h1 className='w-[236px] h-[58px] gap-2.5  flex font-bold leading-[32px] text-[24px] text-[#252B42] tracking-[0.1px]'>
-                Bandage
-              </h1>
+     <div className='h-[1342px] w-[1342px] bg-[#FFFFFF] lg:w-[auto] lg:h-[488px] relative'>
+      <br/>
+      <br/>
+       <div className='w-auto h-[173px] bg-[#FAFAFA] lg:w-[full] lg:h-[142px] relative'>
+         <div className=' w-[325px] h-[175.5px]  pt-10 pb-10 lg:w-[1050px] lg:absolute lg:left-[195px] lg:h-[138px]'>
+           <div className='w-[243px] h-[93.5px] left-[44px]  text-center absolute mb-[11.5px] gap-[11.5px] flex flex-col lg:flex-row lg:gap-[577.5px] lg:justify-between'>
+          
+             <div className='flex flex-col lg:flex-row '>
+               <h1 className='w-[236px] h-[58px] gap-2.5  flex font-bold leading-[32px] text-[24px] text-[#252B42] tracking-[0.1px]'>
+                 Bandage
+               </h1>
+
             </div>
+   
 
             {/* Social Media Icons Section */}
-            <div className='flex gap-[20px]  '>
+            <div className='flex gap-4  '>
               {/* Facebook Icon */}
-              <FontAwesomeIcon icon={faFacebook} className="text-sky-500 w-[24px] h-[24px]" />
+              <FontAwesomeIcon icon={faFacebook} className="text-sky-500 w-[24px] h-[24px]  hover:text-blue-900 transition-colors duration-300" />
               {/* Instagram Icon */}
-              <FontAwesomeIcon icon={faInstagram} className="text-sky-500 w-[24px] h-[24px]" />
+              <FontAwesomeIcon icon={faInstagram} className="text-sky-500 w-[24px] h-[24px]  hover:text-red-400 transition-colors duration-300" />
               {/* Twitter Icon */}
-              <FontAwesomeIcon icon={faTwitter} className="text-sky-500 w-[24px] h-[24px]" />
+              <FontAwesomeIcon icon={faTwitter} className="text-sky-500 w-[24px] h-[24px]  hover:text-blue-500 transition-colors duration-300" />
             </div>
           </div>
         </div>
@@ -40,21 +44,21 @@ const Footer = () => {
         <div className='w-[148px] h-[170px] gap-5 flex flex-col '>
         
            <h5 className='font-bold leading-[24px] tracking-[0.1px] text-[16px]'>Company Info</h5>
-            <ul className='text-[#737373] leading-6 tracking-[0.2px] font-bold text-[14px] flex flex-col gap-2.5'>
-                <li>About Us</li>
-                <li>Carrier</li>
-                <li>We are hiring</li>
-                <li>Blog</li>
+            <ul className='text-[#737373] leading-6 tracking-[0.2px] font-bold text-[14px] flex flex-col gap-2.5 '>
+                <li className=' hover:text-blue-400 transition-colors duration-300'>About Us</li>
+                <li className=' hover:text-blue-400 transition-colors duration-300'>Carrier</li>
+                <li className=' hover:text-blue-400 transition-colors duration-300'>We are hiring</li>
+                <li className=' hover:text-blue-400 transition-colors duration-300'>Blog</li>
             </ul>
         </div>
         <div className='w-[148px] h-[170px] gap-5 flex flex-col '>
         
         <h5 className='font-bold leading-[24px[ tracking-[0.1px] text-[16px]'>Legal</h5>
          <ul className='text-[#737373] leading-6 tracking-[0.2px] font-bold text-[14px] flex flex-col gap-2.5'>
-                <li>About Us</li>
-                <li>Carrier</li>
-                <li>We are hiring</li>
-                <li>Blog</li>
+                 <li className=' hover:text-blue-400 transition-colors duration-300'>About Us</li>
+                <li className=' hover:text-blue-400 transition-colors duration-300'>Carrier</li>
+                <li className=' hover:text-blue-400 transition-colors duration-300'>We are hiring</li>
+                <li className=' hover:text-blue-400 transition-colors duration-300'>Blog</li>
          </ul>
      </div>
        
@@ -62,20 +66,20 @@ const Footer = () => {
         
         <h5 className='font-bold leading-[24px[ tracking-[0.1px] text-[16px]'>Features</h5>
          <ul className='text-[#737373] leading-6 tracking-[0.2px] font-bold text-[14px] flex flex-col gap-2.5'>
-             <li>Business Marketing</li>
-             <li>User Analytic</li>
-             <li>Live Chat</li>
-             <li>Unlimited Support</li>
+             <li className=' hover:text-blue-400 transition-colors duration-300'>Business Marketing</li>
+             <li className=' hover:text-blue-400 transition-colors duration-300'>User Analytic</li>
+             <li className=' hover:text-blue-400 transition-colors duration-300'>Live Chat</li>
+             <li className=' hover:text-blue-400 transition-colors duration-300'>Unlimited Support</li>
          </ul>
      </div>
      <div className='w-[148px] h-[170px] gap-5 flex flex-col '>
         
         <h5 className='font-bold leading-[24px[ tracking-[0.1px] text-[16px]'>Resources</h5>
          <ul className='text-[#737373] leading-6 tracking-[0.2px] font-bold text-[14px] flex flex-col gap-2.5'>
-             <li>IOS & Android</li>
-             <li>Watch a Demo</li>
-             <li>Customers</li>
-             <li>API</li>
+             <li className=' hover:text-blue-400 transition-colors duration-300'>IOS & Android</li>
+             <li className=' hover:text-blue-400 transition-colors duration-300'>Watch a Demo</li>
+             <li className=' hover:text-blue-400 transition-colors duration-300'>Customers</li>
+             <li className=' hover:text-blue-400 transition-colors duration-300'>API</li>
          </ul>
      </div>
   

@@ -1,14 +1,16 @@
 
 'use client';
+
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faSearch, faHeart, faShoppingCart, faBars } from '@fortawesome/free-solid-svg-icons';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'; // For dropdown
+import { faSearch, faBars, faChevronDown, faShoppingCart } from '@fortawesome/free-solid-svg-icons'; // Solid icons
+import { faUser, faHeart } from '@fortawesome/free-regular-svg-icons'; // Regular icons
 import Link from 'next/link'; // Import Link from Next.js
 
+
 const Navbar = () => {
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isDropdownOpen, setDropdownOpen] = useState(false); // Dropdown state
+  const [isMenuOpen, setMenuOpen] = useState(false); // Mobile menu state
 
   // Toggle dropdown visibility
   const toggleDropdown = () => {
@@ -31,7 +33,7 @@ const Navbar = () => {
         </div>
 
         {/* Links for larger screens (hidden on mobile) */}
-        <div className="hidden lg:flex items-center space-x-6">
+        <div className="hidden lg:flex items-center space-x-6  text-[#737373] font-bold">
           <Link href="/" className="cursor-pointer">Home</Link>
           <Link href="/About" className="cursor-pointer">About</Link>
           
@@ -46,17 +48,15 @@ const Navbar = () => {
             </span>
             {/* Dropdown Menu */}
             {isDropdownOpen && (
-              <div className="absolute h-[100px] top-6 left-0 w-32 bg-gray-800 text-white p-2">
-                <Link href="/category1" className="block py-1">Category 1</Link>
-                <Link href="/category2" className="block py-1">Category 2</Link>
-                <Link href="/category3" className="block py-1">Category 3</Link>
+              <div className="absolute h-[100px] top-6 left-0 w-32 bg-gray-800 text-[white] p-2">
+                <Link href="/Shop" className="cursor-pointer">Shop</Link>
               </div>
             )}
           </div>
           
+          <Link href="/" className="cursor-pointer">Blog</Link>
           <Link href="/contact" className="cursor-pointer">Contact</Link>
-          <Link href="/faq" className="cursor-pointer">Faq</Link>
-          <Link href="/blog" className="cursor-pointer">Blog</Link>
+          <Link href="/" className="cursor-pointer">Pages</Link>
         </div>
         
         {/* Right Section: Icons for larger screens (hidden on mobile) */}
@@ -85,9 +85,10 @@ const Navbar = () => {
 
       {/* Mobile Menu (Dropdown) */}
       {isMenuOpen && (
-        <div className="w-full bg-white text-black md:hidden flex flex-col items-center py-4 space-y-4">
-          <Link href="/" className="cursor-pointer">Home</Link>
-          <Link href="/about" className="cursor-pointer">About</Link>
+        <div className="w-full bg-white  text-[#737373] font-bold md:hidden flex flex-col items-center py-4 space-y-4">
+          {/* Navigation Links */}
+          <Link href="/" className="cursor-pointer ">Home</Link>
+          <Link href="/about" className="cursor-pointer ">About</Link>
           
           {/* Shop Link with Dropdown */}
           <div className="relative">
@@ -101,16 +102,25 @@ const Navbar = () => {
             {/* Dropdown Menu */}
             {isDropdownOpen && (
               <div className="absolute top-8 left-0 w-full bg-gray-800 text-white p-2">
-                <Link href="/category1" className="block py-1">Category 1</Link>
-                <Link href="/category2" className="block py-1">Category 2</Link>
-                <Link href="/category3" className="block py-1">Category 3</Link>
+                <Link href="/Shop" className="cursor-pointer">Shop</Link>
               </div>
             )}
           </div>
 
-          <Link href="/blog" className="cursor-pointer">Blog</Link>
-          <Link href="/contact" className="cursor-pointer">Contact</Link>
-          <Link href="/pages" className="cursor-pointer">Pages</Link>
+          <Link href="/blog" className="cursor-pointer ">Blog</Link>
+          <Link href="/contact" className="cursor-pointer ">Contact</Link>
+          <Link href="/pages" className="cursor-pointer ">Pages</Link>
+
+          {/* Icons Section */}
+          <div className="flex flex-col items-center space-y-2 mt-4">
+            <div className="flex items-center space-x-2 cursor-pointer">
+              <FontAwesomeIcon icon={faUser} className="h-5 w-5 text-[#23A6F0]" />
+              <span className="text-sm text-[#23A6F0]">Login/Register</span>
+            </div>
+            <FontAwesomeIcon icon={faSearch} className="h-5 w-5 cursor-pointer text-[#23A6F0]" />
+            <FontAwesomeIcon icon={faShoppingCart} className="h-5 w-5 cursor-pointer text-[#23A6F0]" />
+            <FontAwesomeIcon icon={faHeart} className="h-5 w-5 cursor-pointer text-[#23A6F0]" />
+          </div>
         </div>
       )}
     </>
