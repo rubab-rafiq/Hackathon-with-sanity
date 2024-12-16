@@ -68,7 +68,7 @@ const Nav = () => {
         <div className="absolute top-[100%] left-0 w-full bg-white shadow-lg md:hidden z-10">
           <div className="flex flex-col items-center py-4 space-y-4">
             <Link href="/" className="text-lg font-normal text-[#737373] hover:text-blue-500">Home</Link>
-            <Link href="/product" className="text-lg font-normal text-[#737373] hover:text-blue-500">Product</Link>
+            <Link href="/Product" className="text-lg font-normal text-[#737373] hover:text-blue-500">Product</Link>
             <Link href="/pricing" className="text-lg font-normal text-[#737373] hover:text-blue-500">Pricing</Link>
             <Link href="/contact" className="text-lg font-normal text-[#737373] hover:text-blue-500">Contact</Link>
           </div>
