@@ -88,7 +88,7 @@ const Navbar = () => {
         <div className="w-full bg-white  text-[#737373] font-bold md:hidden flex flex-col items-center py-4 space-y-4">
           {/* Navigation Links */}
           <Link href="/" className="cursor-pointer ">Home</Link>
-          <Link href="/about" className="cursor-pointer ">About</Link>
+          <Link href="/About" className="cursor-pointer ">About</Link>
           
           {/* Shop Link with Dropdown */}
           <div className="relative">
