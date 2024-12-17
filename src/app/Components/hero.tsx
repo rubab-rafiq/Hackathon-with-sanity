@@ -1,6 +1,4 @@
 
-
-
 import React from 'react';
 import Image from 'next/image';
 import hero from "@/app/images/shop-hero.png";
@@ -29,9 +27,11 @@ const Hero = () => {
             We know how large objects will act, but things on a small scale.
           </h4>
           {/* "Shop Now" Button */}
-          <button className="w-[200px] sm:w-[221px] h-[50px] sm:h-[62px] bg-[#2DC071] text-white font-semibold rounded-lg">
-            Shop Now
-          </button>
+          <div className="flex justify-center lg:justify-start">
+            <button className="w-[200px] sm:w-[221px] h-[50px] sm:h-[62px] bg-[#2DC071] text-white font-semibold rounded-lg">
+              Shop Now
+            </button>
+          </div>
         </div>
       </div>
     </div>

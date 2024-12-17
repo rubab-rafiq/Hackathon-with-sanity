@@ -40,7 +40,7 @@
             </div>
 
             <Link
-              href="/"
+              href="/Shop"
               className="text-[#BDBDBD] text-[14px] leading-[24px] tracking-[0.1px] font-bold"
             >
               Shop

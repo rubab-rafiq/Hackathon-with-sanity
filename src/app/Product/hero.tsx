@@ -23,7 +23,7 @@ const Hero = () => {
           <h6 className="text-sm font-bold flex items-center gap-2">
             <Link href="/" className="text-[#252B42]">Home</Link>
             <IoIosArrowForward className="text-[#BDBDBD]" />
-            <Link href="/" className="text-[#BDBDBD]">Shop</Link>
+            <Link href="/Product" className="text-[#BDBDBD]">Product</Link>
           </h6>
         </div>
       </div>

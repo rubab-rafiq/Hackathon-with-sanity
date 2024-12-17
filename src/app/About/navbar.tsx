@@ -27,9 +27,9 @@ const Nav = () => {
           {/* Links and Menu */}
           <div className="hidden md:flex items-center space-x-6">
             <Link href="/" className="text-sm font-bold text-[#737373] hover:text-blue-500">Home</Link>
-            <Link href="/product" className="text-sm font-bold text-[#737373] hover:text-blue-500">Product</Link>
-            <Link href="/pricing" className="text-sm font-bold text-[#737373] hover:text-blue-500">Pricing</Link>
-            <Link href="/contact" className="text-sm font-bold text-[#737373] hover:text-blue-500">Contact</Link>
+            <Link href="/Product" className="text-sm font-bold text-[#737373] hover:text-blue-500">Product</Link>
+            <Link href="/Pricing" className="text-sm font-bold text-[#737373] hover:text-blue-500">Pricing</Link>
+            <Link href="/Contact" className="text-sm font-bold text-[#737373] hover:text-blue-500">Contact</Link>
           </div>
 
           {/* Account and Actions */}
@@ -69,8 +69,8 @@ const Nav = () => {
           <div className="flex flex-col items-center py-4 space-y-4">
             <Link href="/" className="text-lg font-normal text-[#737373] hover:text-blue-500">Home</Link>
             <Link href="/Product" className="text-lg font-normal text-[#737373] hover:text-blue-500">Product</Link>
-            <Link href="/pricing" className="text-lg font-normal text-[#737373] hover:text-blue-500">Pricing</Link>
-            <Link href="/contact" className="text-lg font-normal text-[#737373] hover:text-blue-500">Contact</Link>
+            <Link href="/Pricing" className="text-lg font-normal text-[#737373] hover:text-blue-500">Pricing</Link>
+            <Link href="/Contact" className="text-lg font-normal text-[#737373] hover:text-blue-500">Contact</Link>
           </div>
         </div>
       )}

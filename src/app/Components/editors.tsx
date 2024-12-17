@@ -14,10 +14,10 @@ const Editors = () => {
         
         {/* Section Title */}
         <div className='w-full  h-[62px] flex flex-col gap-[10px] justify-center items-center text-center'>
-          <p className='text-[24px] font-bold text-[#252B42] leading-[32px] tracking-[0.1px]'>
-            EDITOR’S PICK
-          </p>
-          <p className='leading-[10px] text-[14px] font-normal text-[#737373] tracking-[0.2px]'>
+        <p className="text-[20px] sm:text-[24px] font-bold text-[#252B42] leading-[32px] tracking-[0.1px]">
+             EDITOR’S PICK
+           </p>
+         <p className="text-[12px] sm:text-[14px] font-normal text-[#737373] tracking-[0.2px]">
             Problems trying to resolve the conflict between
           </p>
         </div>

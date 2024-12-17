@@ -54,9 +54,9 @@ const Navbar = () => {
             )}
           </div>
           
-          <Link href="/" className="cursor-pointer">Blog</Link>
-          <Link href="/contact" className="cursor-pointer">Contact</Link>
-          <Link href="/" className="cursor-pointer">Pages</Link>
+          <Link href="/Pricing" className="cursor-pointer">Blog</Link>
+          <Link href="/Contact" className="cursor-pointer">Contact</Link>
+          <Link href="/Product" className="cursor-pointer">Pages</Link>
         </div>
         
         {/* Right Section: Icons for larger screens (hidden on mobile) */}
@@ -107,9 +107,9 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link href="/blog" className="cursor-pointer ">Blog</Link>
-          <Link href="/contact" className="cursor-pointer ">Contact</Link>
-          <Link href="/pages" className="cursor-pointer ">Pages</Link>
+          <Link href="/Pricing" className="cursor-pointer ">Blog</Link>
+          <Link href="/Contact" className="cursor-pointer ">Contact</Link>
+          <Link href="/Product" className="cursor-pointer ">Pages</Link>
 
           {/* Icons Section */}
           <div className="flex flex-col items-center space-y-2 mt-4">
