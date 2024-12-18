@@ -3,7 +3,7 @@
 // export default GetInTouch;
 import React from 'react'
 import Image from 'next/image'
-import HeroImage from "@/app/images/contact/Hero.png"
+import HeroImage from "@/app/images/contact/hero.png";
 
 import { FaTwitter, FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
 const GetInTouch = () => {
