@@ -6,7 +6,7 @@ import ProblemsSection from './problem';
 import Customer from './customer';
 import Brand from './brand';
 import Team from './team';
-import Image from './image';
+import ImageComponent from './image';
 import WorkwithUs from './workwithus';
 const AboutPage = () => {
   return (
@@ -16,7 +16,7 @@ const AboutPage = () => {
       <Hero/> 
       <ProblemsSection/>
       <Customer/>
-      <Image/>
+      <ImageComponent/>
       <Team/>
       <Brand/>
       <WorkwithUs/>

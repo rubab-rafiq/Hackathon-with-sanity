@@ -3,7 +3,7 @@
 // export default GetInTouch;
 import React from 'react'
 import Image from 'next/image'
-import hero from "@/app/images/Contact/hero.png"
+import HeroImage from "@/app/images/contact/hero.png"
 
 import { FaTwitter, FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
 const GetInTouch = () => {
@@ -36,8 +36,8 @@ const GetInTouch = () => {
             {/* Right Side */}
             <div className='w-full md:w-[600px]'>
                 <Image
-                    src={hero}
-                    alt='Background Image'
+                    src={HeroImage}
+                    alt='Hero Image'
                     className='w-full h-auto md:w-[600px] md:h-[600px] object-cover rounded-md'
                 />
             </div>
