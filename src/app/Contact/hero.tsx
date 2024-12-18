@@ -1,12 +1,10 @@
 
-
-// export default GetInTouch;
 import React from 'react'
 import Image from 'next/image'
-import HeroImage from "@/app/images/contact/hero.png";
+import HeroImage from "../../app/images/contact/hero.png";
 
 import { FaTwitter, FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
-const GetInTouch = () => {
+const Hero = () => {
     return (
         <div className='w-full h-full px-6 md:px-20 py-10 flex flex-col md:flex-row justify-between items-center'>
             {/* Left Side */}
@@ -45,4 +43,4 @@ const GetInTouch = () => {
     );
 };
 
-export default GetInTouch;
+export default Hero;
