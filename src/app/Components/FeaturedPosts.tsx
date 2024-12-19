@@ -10,7 +10,7 @@ import { faClock, faCommentAlt, faAngleDown } from '@fortawesome/free-solid-svg-
 
 const FeaturedPosts = () => {
   return (
-    <div className="flex justify-center items-center py-[112px]"> {/* Centering the container */}
+    <div className="flex justify-center items-center py-[112px]  overflow-hidden"> {/* Centering the container */}
       <div className="w-full max-w-[1050px] px-4"> {/* Adding max width for responsiveness */}
         
         {/* Header Section */}

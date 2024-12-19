@@ -13,11 +13,11 @@ import img8  from '@/app/images/seller/img8.png';
 
 const Seller = () => {
   return (
-    <div className='w-full px-4 lg:px-0 h-auto lg:h-[1652px] relative'>
-      <div className='w-full lg:w-[1124px] mx-auto flex-col py-[80px] gap-[80px] flex relative'>
+    <div className='w-full px-4 lg:px-0 h-auto lg:h-[1652px] relative  overflow-hidden'>
+      <div className='w-full lg:w-[1124px] mx-auto flex-col py-[80px] gap-[80px] flex relative text-center justify-center items-center'>
         {/* Section Title */}
         <div className='w-full max-w-[607px] h-[62px] flex flex-col gap-[10px] justify-center items-center text-center'>
-          <p className='leading-[30px] text-[20px] font-normal text-[#737373] tracking-[0.2px]'>
+          <p className='leading-[30px] text-[20px] font-normal text-[#737373] tracking-[0.2px] '>
             Featured Products
           </p>
           <p className='text-[24px] font-bold text-[#252B42] leading-[32px] tracking-[0.1px]'>

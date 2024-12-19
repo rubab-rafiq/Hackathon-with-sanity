@@ -7,7 +7,7 @@ import Review from '@/app/Product/review'
 import Footer from '@/app/Components/footer'
 const PricingPage = () => {
   return (
-    <div>
+    <div className=' overflow-hidden'>
       <Nav/>
       <Hero/>
       <Brand/>

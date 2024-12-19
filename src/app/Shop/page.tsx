@@ -30,7 +30,7 @@ import Card from '@/app/Shop/card';
 
 const Shoppage = () => {
   return (
-    <div>
+    <div className=' overflow-hidden'>
       <Navbar/>
       <Navbar2/>
       <Hero/>

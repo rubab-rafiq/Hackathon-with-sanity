@@ -5,14 +5,14 @@ import hero from "@/app/images/shop-hero.png";
 
 const Hero = () => {
   return (
-    <div className="relative h-[753px] lg:h-[716px] w-full">
+    <div className="relative h-[753px] lg:h-[716px] w-full  overflow-hidden">
       {/* Background Image */}
       <Image
         src={hero}
         alt="Hero"
         className="h-full w-full object-cover"
       />
-      <div className="absolute top-[48px] left-1/2 transform -translate-x-1/2 flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-[1044px] px-4 lg:px-0 gap-[40px] py-[112px]">
+      <div className="absolute top-[88px] left-1/2 transform -translate-x-1/2 flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-[1044px] px-4 lg:px-0 gap-[40px] py-[112px]">
         <div className="flex flex-col gap-[30px]">
           {/* "SUMMER 2024" Text */}
           <p className="text-[16px] font-bold text-[#FFFFFF] tracking-wider">

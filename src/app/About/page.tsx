@@ -10,7 +10,7 @@ import ImageComponent from './image';
 import WorkwithUs from './workwithus';
 const AboutPage = () => {
   return (
-    <div>
+    <div className=' overflow-hidden'>
       
       <Nav/> 
       <Hero/> 

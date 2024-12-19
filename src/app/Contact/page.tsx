@@ -5,7 +5,7 @@ import Ideas from './ideas'
 import Footer from '@/app/Components/footer'
 const ContactPage = () => {
   return (
-    <div>
+    <div className=' overflow-hidden'>
       <Nav/>
       <Hero/>
       <Ideas/>

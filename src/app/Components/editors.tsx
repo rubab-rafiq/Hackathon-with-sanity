@@ -9,7 +9,7 @@ import men2 from '@/app/images/men2.png';
 
 const Editors = () => {
   return (
-    <div className='h-[1850px] lg:h-[770px] w-full bg-[#FAFAFA] relative'>
+    <div className='h-[1850px] lg:h-[770px] w-full bg-[#FAFAFA] relative  overflow-hidden'>
       <div className='lg:w-[1050px] lg:h-[770px] py-[80px] flex flex-col absolute left-[50%] transform -translate-x-[50%] gap-[48px] justify-center items-center'>
         
         {/* Section Title */}

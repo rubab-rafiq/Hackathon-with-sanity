@@ -6,7 +6,7 @@ import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg
 const Footer = () => {
   return (
     
-     <div className='h-[1342px] w-[1342px] bg-[#FFFFFF] lg:w-[auto] lg:h-[488px] relative'>
+     <div className='h-[1342px] w-[1342px] bg-[#FFFFFF] lg:w-[auto] lg:h-[488px] relative  overflow-hidden'>
       <br/>
       <br/>
        <div className='w-auto h-[173px] bg-[#FAFAFA] lg:w-[full] lg:h-[142px] relative'>

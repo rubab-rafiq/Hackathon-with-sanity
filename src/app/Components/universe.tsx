@@ -5,7 +5,7 @@ import universe from '@/app/images/universe.png';
 
 const Universe = () => {
   return (
-    <div className='lg:h-[716px] lg:w-auto relative h-[1366px]  bg-white '>
+    <div className='lg:h-[716px] lg:w-auto relative h-[1366px]  bg-white  overflow-hidden'>
 
     <div className='lg:w-[1036px] lg:h-[711px] lg:left-[209px]  left-[30px] absolute gap-[80px]  py-[112px] w-[414px] h-[1252px]'>
       <div className=' gap-[30px]   h-[1238px] w-[1049px]  grid grid-flow-cols-1 lg:grid-cols-2'>

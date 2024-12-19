@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import React, { useState } from 'react';
@@ -6,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars, faChevronDown, faShoppingCart } from '@fortawesome/free-solid-svg-icons'; // Solid icons
 import { faUser, faHeart } from '@fortawesome/free-regular-svg-icons'; // Regular icons
 import Link from 'next/link'; // Import Link from Next.js
-
 
 const Navbar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false); // Dropdown state
@@ -24,57 +24,57 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Main Navbar */}
-      <div className="w-full h-[70px] bg-[#FFFFFF] text-[#737373] flex justify-between items-center px-6">
+      {/* Main Navbar with bottom shadow and hover effect */}
+      <div className="w-full h-[70px] bg-[#FFFFFF] text-[#737373] flex justify-between items-center px-6 overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:bg-[#F0F8FF] border-y-gray-300 border hover:text-[#1E90FF]"> {/* Added hover effect and transition */}
         
         {/* Left Section: Logo */}
         <div className="flex items-center space-x-8">
-          <div className="text-lg font-bold text-[28px] text-[#252B42]">Bandage</div>
+          <h3 className="text-2xl font-bold text-[#252B42]">Bandage</h3>
         </div>
 
         {/* Links for larger screens (hidden on mobile) */}
-        <div className="hidden lg:flex items-center space-x-6  text-[#737373] font-bold">
-          <Link href="/" className="cursor-pointer">Home</Link>
-          <Link href="/About" className="cursor-pointer">About</Link>
+        <div className="hidden lg:flex items-center space-x-6 text-[#737373] font-bold">
+          <Link href="/" className="cursor-pointer hover:text-[#1E90FF] transition-all duration-300">Home</Link>
+          <Link href="/About" className="cursor-pointer hover:text-[#1E90FF] transition-all duration-300">About</Link>
           
           {/* Shop Link with Dropdown */}
           <div className="relative">
             <span 
               onClick={toggleDropdown} 
-              className="cursor-pointer flex items-center space-x-1"
+              className="cursor-pointer flex items-center space-x-1 hover:text-[#1E90FF] transition-all duration-300"
             >
               <span className='text-[#252B42]'>Shop</span>
               <FontAwesomeIcon icon={faChevronDown} />
             </span>
             {/* Dropdown Menu */}
             {isDropdownOpen && (
-              <div className="absolute h-[100px] top-6 left-0 w-32 bg-gray-800 text-[white] p-2">
+              <div className="absolute h-[100px] top-6 left-0 w-32 bg-gray-800 text-white p-2">
                 <Link href="/Shop" className="cursor-pointer">Shop</Link>
               </div>
             )}
           </div>
           
-          <Link href="/Pricing" className="cursor-pointer">Blog</Link>
-          <Link href="/Contact" className="cursor-pointer">Contact</Link>
-          <Link href="/Product" className="cursor-pointer">Pages</Link>
+          <Link href="/Pricing" className="cursor-pointer hover:text-[#1E90FF] transition-all duration-300">Blog</Link>
+          <Link href="/Contact" className="cursor-pointer hover:text-[#1E90FF] transition-all duration-300">Contact</Link>
+          <Link href="/Product" className="cursor-pointer hover:text-[#1E90FF] transition-all duration-300">Pages</Link>
         </div>
         
         {/* Right Section: Icons for larger screens (hidden on mobile) */}
         <div className="hidden md:flex items-center space-x-6">
           {/* Login/Register */}
-          <div className="flex items-center space-x-2 cursor-pointer">
+          <div className="flex items-center space-x-2 cursor-pointer hover:text-[#1E90FF] transition-all duration-300">
             <FontAwesomeIcon icon={faUser} className="h-5 w-5 text-[#23A6F0]" />
             <span className="text-sm text-[#23A6F0]">Login/Register</span>
           </div>
 
           {/* Search Icon */}
-          <FontAwesomeIcon icon={faSearch} className="h-5 w-5 cursor-pointer text-[#23A6F0]" />
+          <FontAwesomeIcon icon={faSearch} className="h-5 w-5 cursor-pointer text-[#23A6F0] hover:text-[#1E90FF] transition-all duration-300" />
 
           {/* Wishlist Icon */}
-          <FontAwesomeIcon icon={faShoppingCart} className="h-5 w-5 cursor-pointer text-[#23A6F0]" />
+          <FontAwesomeIcon icon={faShoppingCart} className="h-5 w-5 cursor-pointer text-[#23A6F0] hover:text-[#1E90FF] transition-all duration-300" />
 
           {/* Heart Icon */}
-          <FontAwesomeIcon icon={faHeart} className="h-5 w-5 cursor-pointer text-[#23A6F0]" />
+          <FontAwesomeIcon icon={faHeart} className="h-5 w-5 cursor-pointer text-[#23A6F0] hover:text-[#1E90FF] transition-all duration-300" />
         </div>
 
         {/* Mobile Burger Icon */}
@@ -85,16 +85,16 @@ const Navbar = () => {
 
       {/* Mobile Menu (Dropdown) */}
       {isMenuOpen && (
-        <div className="w-full bg-white  text-[#737373] font-bold md:hidden flex flex-col items-center py-4 space-y-4">
+        <div className="w-full bg-white text-[#737373] font-bold md:hidden flex flex-col items-center py-4 space-y-4">
           {/* Navigation Links */}
-          <Link href="/" className="cursor-pointer ">Home</Link>
-          <Link href="/About" className="cursor-pointer ">About</Link>
+          <Link href="/" className="cursor-pointer hover:text-[#1E90FF] transition-all duration-300">Home</Link>
+          <Link href="/About" className="cursor-pointer hover:text-[#1E90FF] transition-all duration-300">About</Link>
           
           {/* Shop Link with Dropdown */}
           <div className="relative">
             <span
               onClick={toggleDropdown}
-              className="cursor-pointer flex items-center space-x-1"
+              className="cursor-pointer flex items-center space-x-1 hover:text-[#1E90FF] transition-all duration-300"
             >
               <span className="text-[#252B42]">Shop</span>
               <FontAwesomeIcon icon={faChevronDown} />
@@ -107,19 +107,19 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link href="/Pricing" className="cursor-pointer ">Blog</Link>
-          <Link href="/Contact" className="cursor-pointer ">Contact</Link>
-          <Link href="/Product" className="cursor-pointer ">Pages</Link>
+          <Link href="/Pricing" className="cursor-pointer hover:text-[#1E90FF] transition-all duration-300">Blog</Link>
+          <Link href="/Contact" className="cursor-pointer hover:text-[#1E90FF] transition-all duration-300">Contact</Link>
+          <Link href="/Product" className="cursor-pointer hover:text-[#1E90FF] transition-all duration-300">Pages</Link>
 
           {/* Icons Section */}
           <div className="flex flex-col items-center space-y-2 mt-4">
-            <div className="flex items-center space-x-2 cursor-pointer">
+            <div className="flex items-center space-x-2 cursor-pointer hover:text-[#1E90FF] transition-all duration-300">
               <FontAwesomeIcon icon={faUser} className="h-5 w-5 text-[#23A6F0]" />
               <span className="text-sm text-[#23A6F0]">Login/Register</span>
             </div>
-            <FontAwesomeIcon icon={faSearch} className="h-5 w-5 cursor-pointer text-[#23A6F0]" />
-            <FontAwesomeIcon icon={faShoppingCart} className="h-5 w-5 cursor-pointer text-[#23A6F0]" />
-            <FontAwesomeIcon icon={faHeart} className="h-5 w-5 cursor-pointer text-[#23A6F0]" />
+            <FontAwesomeIcon icon={faSearch} className="h-5 w-5 cursor-pointer text-[#23A6F0] hover:text-[#1E90FF] transition-all duration-300" />
+            <FontAwesomeIcon icon={faShoppingCart} className="h-5 w-5 cursor-pointer text-[#23A6F0] hover:text-[#1E90FF] transition-all duration-300" />
+            <FontAwesomeIcon icon={faHeart} className="h-5 w-5 cursor-pointer text-[#23A6F0] hover:text-[#1E90FF] transition-all duration-300" />
           </div>
         </div>
       )}
