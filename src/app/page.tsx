@@ -10,7 +10,7 @@ import Universe from './Components/universe';
 import FeaturedPosts from './Components/FeaturedPosts';
 const Home = () => {
   return (
-    <div className=' overflow-hidden'>
+    <div className=' overflow-hidden mx-auto'>
       <TopNavbar/>
       <Navbar2/>
       <Hero/>
