@@ -54,7 +54,7 @@ const Navbar = () => {
             )}
           </div>
           
-          <Link href="/Pricing" className="cursor-pointer hover:text-[#1E90FF] transition-all duration-300">Blog</Link>
+          <Link href="/Blog" className="cursor-pointer hover:text-[#1E90FF] transition-all duration-300">Blog</Link>
           <Link href="/Contact" className="cursor-pointer hover:text-[#1E90FF] transition-all duration-300">Contact</Link>
           <Link href="/Product" className="cursor-pointer hover:text-[#1E90FF] transition-all duration-300">Pages</Link>
         </div>
@@ -107,7 +107,7 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link href="/Pricing" className="cursor-pointer hover:text-[#1E90FF] transition-all duration-300">Blog</Link>
+          <Link href="/Blog" className="cursor-pointer hover:text-[#1E90FF] transition-all duration-300">Blog</Link>
           <Link href="/Contact" className="cursor-pointer hover:text-[#1E90FF] transition-all duration-300">Contact</Link>
           <Link href="/Product" className="cursor-pointer hover:text-[#1E90FF] transition-all duration-300">Pages</Link>
 

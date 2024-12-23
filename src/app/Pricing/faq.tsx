@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { AiOutlineRight } from "react-icons/ai";
-import { FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+
 
 const PricingFAQ = () => {
   return (

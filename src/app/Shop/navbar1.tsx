@@ -5,7 +5,7 @@ import { faFacebookF, faTwitter, faInstagram, faYoutube } from '@fortawesome/fre
 
 const TopNavbar = () => {
   return (
-    <div className="w-full hidden h-12 bg-[#238560] font-bold text-white md:flex justify-between items-center px-6">
+    <div className="w-full hidden h-12 bg-[#238560] font-bold text-white md:flex justify-around items-center px-6">
       {/* Left Section */}
       <div className="flex items-center space-x-6">
         {/* Phone Icon and Phone Number */}
