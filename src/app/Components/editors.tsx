@@ -49,7 +49,7 @@ const Editors = () => {
           </div>
 
           {/* Accessories and Kids Section */}
-          <div className="bg-[#FFFFFF] w-full h-auto flex flex-col gap-[16px]">
+          <div className="bg-[#FFFFFF] w-full h-auto flex flex-col sm:w-[330px] md:w-[400px] lg:w-full lg:flex-col sm:flex-row  gap-[16px]">
             {/* Accessories Image */}
             <div className="relative h-[190px] sm:h-[242px] rounded-lg overflow-hidden shadow-md">
               <Image

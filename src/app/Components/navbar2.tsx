@@ -29,7 +29,7 @@ const Navbar = () => {
         
         {/* Left Section: Logo */}
         <div className="flex items-center space-x-8">
-          <h3 className="text-2xl font-bold text-[#252B42]">Bandage</h3>
+          <a href="/" className="text-2xl font-bold text-[#252B42]">Bandage</a>
         </div>
 
         {/* Links for larger screens (hidden on mobile) */}

@@ -10,7 +10,7 @@ const Hero = () => {
       <Image
         src={hero}
         alt="Hero"
-        className="h-full w-full object-cover"
+        className="h-full w-[full] object-cover"
       />
       <div className="absolute top-[88px] left-1/2 transform -translate-x-1/2 flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-[1044px] px-4 lg:px-0 gap-[40px] py-[112px]">
         <div className="flex flex-col gap-[30px]">

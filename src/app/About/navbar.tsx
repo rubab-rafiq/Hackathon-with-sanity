@@ -21,7 +21,7 @@ const Nav = () => {
         <div className="w-full flex justify-center bg-white shadow-md">
           <div className="container max-w-screen-xl flex justify-between items-center px-4 md:px-6 py-3">
             {/* Brand Name */}
-            <h3 className="text-2xl font-bold text-[#252B42]">Bandage</h3>
+            <a href='/' className="text-2xl font-bold text-[#252B42]">Bandage</a>
 
             {/* Desktop Links */}
             <div className="hidden md:flex items-center space-x-6">
