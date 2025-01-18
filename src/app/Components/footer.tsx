@@ -6,9 +6,9 @@ import { faFacebook, faInstagram, faTwitter } from "@fortawesome/free-brands-svg
 
 const Footer = () => {
   return (
-    <div className="bg-[#FFFFFF]">
+    <div className="bg-[#FFFFFF] mt-4">
       {/* Top Section */}
-      <div className="bg-[#FAFAFA] py-8">
+      <div className="bg-gray-100 py-8">
         <div className="max-w-screen-lg mx-auto flex flex-col lg:flex-row justify-between items-center px-4">
           {/* Brand Section */}
           <div className="mb-6 lg:mb-0">
