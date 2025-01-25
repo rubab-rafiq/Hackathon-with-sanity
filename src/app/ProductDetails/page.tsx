@@ -641,7 +641,7 @@ import { useState } from 'react';
 import { IProduct } from "@/types/page";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
-import { addToCart } from "@/app/functions/page";
+import { addToCart } from "@/app/functions/action";
 
 const ProductDetails = ({ product }: { product: IProduct }) => {
   const [selectedColor, setSelectedColor] = useState<string | null>(null);

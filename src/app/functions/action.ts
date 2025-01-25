@@ -1,10 +1,6 @@
 
  import { IProduct } from "@/types/page";
 
-
-
-
-
 export const addToCart = (product: IProduct) => {
   let cart: IProduct[] = JSON.parse(localStorage.getItem("cart") || "[]");
 
