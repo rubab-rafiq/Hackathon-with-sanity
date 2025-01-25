@@ -326,14 +326,16 @@ import { client } from "@/sanity/lib/client";
 // }
 
 
-export default async function Page({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  // Directly use params.slug without awaiting
-  const { slug } = params;
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
 
+export default async function Page({ params }: PageProps) {
+  const { slug } = params;  // params is already available synchronously
+
+  // Sanity query
   const query = `*[_type=='product' && slug.current=="${slug}"]{
     title, image, price, discountPrice, slug, description, colors, sizes, quantity
   }[0]`;
