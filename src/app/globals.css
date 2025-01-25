@@ -2,4 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
- 
+@media (max-width: 768px) {
+    .image-container {
+      height: 300px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .image-container {
+      height: 400px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .image-container {
+      height: 500px;
+    }
+}
