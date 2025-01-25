@@ -294,13 +294,45 @@ import { client } from "@/sanity/lib/client";
 // }
 
 
+// export default async function Page({
+//   params,
+// }: {
+//   params: { slug: string };
+// }) {
+//   // Ensure the params are awaited before usage
+//   const { slug } = await params; // Await the params to resolve the Promise; // Check if it logs correctly
+
+//   const query = `*[_type=='product' && slug.current=="${slug}"]{
+//     title, image, price, discountPrice, slug, description, colors, sizes, quantity
+//   }[0]`;
+
+//   const product = await client.fetch(query);
+
+//   if (!product) {
+//     return (
+//       <div className="text-center text-red-500 font-extrabold text-4xl p-10">
+//         <h2>Product not found</h2>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <>
+//       <Navbar />
+//       <ProductDetails product={product} />
+//       <Footer />
+//     </>
+//   );
+// }
+
+
 export default async function Page({
   params,
 }: {
   params: { slug: string };
 }) {
-  // Ensure the params are awaited before usage
-  const { slug } = await params; // Await the params to resolve the Promise; // Check if it logs correctly
+  // Directly use params.slug without awaiting
+  const { slug } = params;
 
   const query = `*[_type=='product' && slug.current=="${slug}"]{
     title, image, price, discountPrice, slug, description, colors, sizes, quantity
