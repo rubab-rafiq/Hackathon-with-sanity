@@ -102,13 +102,21 @@ const Page = async ({ params }: PageProps) => {
 
   const product: IProduct = await client.fetch(query);
 
-  if (!product) {
+  // if (!product) {
+  //   return (
+  //     <div className="text-center text-red-500 font-extrabold text-4xl p-10">
+  //       <h2>Product not found</h2>
+  //     </div>
+  //   );
+  // }
+  if (!product || !product.image) {
     return (
       <div className="text-center text-red-500 font-extrabold text-4xl p-10">
-        <h2>Product not found</h2>
+        <h2>Product not found or missing image</h2>
       </div>
     );
   }
+  
 
   return (
     <>
