@@ -149,7 +149,7 @@ const Seller = async () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[30px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[30px] px-4">
           {data.map((item, index) => (
             <div
               key={index}
@@ -167,20 +167,19 @@ const Seller = async () => {
               </Link>
 
               {/* Product Details */}
-              <div className="w-full px-[25px] pt-[25px] pb-[35px] flex flex-col items-center">
-                <h5 className="text-[16px] font-bold text-[#252B42] leading-[24px] tracking-[0.1px]">
-                  <Link href={`/products/${item.slug.current}`}>
-                    {item.title}
-                  </Link>
+             
+                <div className="w-full px-[20px] pt-[15px] pb-[25px] flex flex-col items-center text-center ">
+                <h5 className="text-[16px] font-bold text-[#252B42] leading-[24px] tracking-[0.1px] hover:text-[#23A6F0]">
+                  <Link href={`/products/${item.slug.current}`}>{item.title}</Link>
                 </h5>
-                <p className="text-[18px] font-bold text-[#BDBDBD]  leading-[24px] tracking-[0.1px]">
-                <span className="line-through">${item.price}</span>{" "}
+                
+                      <p className="text-[16px] font-bold text-[#BDBDBD]  leading-[24px] tracking-[0.1px] mt-2">
+                 <span className="text-[18px] line-through">${item.price}</span>{" "}
                   {item.discountPrice && (
-                    <span className="text-[#238560] ">
-                      ${item.discountPrice}
-                    </span>
+                    <span className="text-[#238560]  ml-2 text-[18px]">${item.discountPrice}</span>
                   )}
                 </p>
+                  
               </div>
 
               {/* Colored Circles Below */}

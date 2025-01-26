@@ -140,7 +140,7 @@ export const getProductData = async () => {
     `*[_type=='product']{
       image{asset->{url}}, 
       title, 
-      dept, 
+      colors,
       price, 
       discountPrice,
       slug
@@ -153,9 +153,9 @@ export const getProductData = async () => {
 interface IProduct {
   image: { asset: { url: string } };
   title: string;
-  dept: string;
   price: string;
   discountPrice: string;
+  colors: string[];
   slug: { current: string };
 }
 
@@ -189,24 +189,28 @@ const Seller = async () => {
                 <h5 className="text-[16px] font-bold text-[#252B42] leading-[24px] tracking-[0.1px] hover:text-[#23A6F0]">
                   <Link href={`/products/${item.slug.current}`}>{item.title}</Link>
                 </h5>
-                <p className="text-[14px] font-normal text-[#737373] leading-[24px] tracking-[0.2px] mt-1">
-                  {item.dept}
-                </p>
-                <p className="text-[16px] font-bold text-[#BDBDBD] leading-[24px] tracking-[0.1px] mt-2">
-                  {item.price}{" "}
+                
+                <p className="text-[16px] font-bold text-[#BDBDBD]  leading-[24px] tracking-[0.1px] mt-2">
+                 <span className="text-[18px] line-through">${item.price}</span>{" "}
                   {item.discountPrice && (
-                    <span className="text-[#238560] line-through ml-2 text-[14px]">{item.discountPrice}</span>
+                    <span className="text-[#238560]  ml-2 text-[18px]">${item.discountPrice}</span>
                   )}
                 </p>
               </div>
 
-              {/* Colored Circles Below */}
-              <div className="flex gap-[6px] mb-4 mt-auto justify-center pb-[15px]">
-                <span className="w-[16px] h-[16px] bg-[#23A6F0] rounded-full cursor-pointer hover:opacity-80 transition-opacity"></span>
-                <span className="w-[16px] h-[16px] bg-[#23856D] rounded-full cursor-pointer hover:opacity-80 transition-opacity"></span>
-                <span className="w-[16px] h-[16px] bg-[#E77C40] rounded-full cursor-pointer hover:opacity-80 transition-opacity"></span>
-                <span className="w-[16px] h-[16px] bg-[#252B42] rounded-full cursor-pointer hover:opacity-80 transition-opacity"></span>
-              </div>
+              
+               {/* Colored Circles Below */}
+               <div className="flex gap-[6px] mb-4 justify-center">
+                {item.colors?.map((color, colorIndex) => (
+                  <button
+                    key={colorIndex}
+                    className="w-5 h-5 rounded-full border border-gray-300"
+                    style={{ backgroundColor: color }}
+                    aria-label={`Color ${color}`}
+                  ></button>
+                ))}
+            </div>
+        
             </div>
           ))}
         </div>

@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { CiSearch } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { HiOutlineMenuAlt3, HiOutlineX, HiOutlineArrowNarrowRight } from 'react-icons/hi';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -45,10 +47,12 @@ const Nav = () => {
               <button className="text-xl">
                 <CiSearch />
               </button>
-              <button className="text-xl flex items-center">
+              <button>
+               <Link href="/Cart" className="text-xl flex items-center">
                 <IoCartOutline />
-                <span className="ml-1 text-sm">1</span>
-              </button>
+               </Link> 
+              </button> 
+             
               <button
                 className="text-2xl"
                 onClick={toggleMenu}
