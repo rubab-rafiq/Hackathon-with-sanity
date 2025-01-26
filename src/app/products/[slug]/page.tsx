@@ -78,11 +78,9 @@
 //       <Footer />
 //     </>
 //   );
-// }
+// // }
+
 import { IProduct } from "@/types/page";
-import { urlFor } from "@/sanity/lib/image";
-import Image from "next/image";
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProductDetails from "@/app/ProductDetails/page";
 import Footer from "@/app/Components/footer";
