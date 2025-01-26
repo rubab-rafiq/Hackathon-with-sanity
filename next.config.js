@@ -7,10 +7,24 @@
 // export default nextConfig;
 // next.config.js
 
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {
+//   images: {
+//     domains: ["cdn.sanity.io"], // Add Sanity's CDN domain
+//   },
+// };
+
+// module.exports = nextConfig;
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["cdn.sanity.io"], // Add Sanity's CDN domain
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io', // Sanity's CDN domain
+      },
+    ],
   },
 };
 
