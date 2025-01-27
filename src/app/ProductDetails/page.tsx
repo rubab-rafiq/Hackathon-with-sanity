@@ -134,7 +134,10 @@
 // };
 
 // export default ProductDetails;
+
+
 'use client';
+import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
@@ -267,3 +270,7 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
 };
 
 export default ProductDetails;
+
+
+
+
