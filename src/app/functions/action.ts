@@ -54,3 +54,23 @@ export const updateCartQuantity = (slug: string, quantity: number) => {
 export const getCartItems = (): IProduct[] => {
   return JSON.parse(localStorage.getItem('cart') || '[]'); // Cart se items fetch karen
 }
+
+export const addToWishlist = (product: IProduct) => {
+  let wishlist: IProduct[] = JSON.parse(localStorage.getItem("wishlist") || "[]");
+
+  // Check if the product already exists in the wishlist
+  const existingProduct = wishlist.find(
+    (item) => item.title.trim().toLowerCase() === product.title.trim().toLowerCase()
+  );
+
+  if (existingProduct) {
+    console.log("Product is already in the wishlist!");
+    return; // Do nothing if it's already in the wishlist
+  }
+
+  // Add the product to the wishlist
+  wishlist.push(product);
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+  console.log("Product added to wishlist successfully!");
+};
