@@ -142,7 +142,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
 
-import { IProduct } from "@/types/page";
+import  IProduct  from "@/types/page";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import { addToCart } from "@/app/functions/action";
@@ -270,7 +270,5 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
 };
 
 export default ProductDetails;
-
-
 
 

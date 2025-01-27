@@ -80,7 +80,7 @@
 //   );
 // // }
 
-import { IProduct } from "@/types/page";
+import IProduct from "@/types/page";
 import 'react-toastify/dist/ReactToastify.css';
 import ProductDetails from "@/app/ProductDetails/page";
 import Footer from "@/app/Components/footer";
@@ -109,7 +109,7 @@ const Page = async ({ params }: PageProps) => {
   //     </div>
   //   );
   // }
-  
+
   if (!product || !product.image) {
     return (
       <div className="text-center text-red-500 font-extrabold text-4xl p-10">

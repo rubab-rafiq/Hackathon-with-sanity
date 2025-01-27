@@ -1,12 +1,12 @@
 
-export interface IProduct {
+export default interface IProduct {
   title: string;
   slug: string;
-  price: number;
-  discountPrice?: number;
-  description: string;
+  price?: number;
+  discountPrice: number;
+  description?: string;
   image: string;
-  colors: string[];
-  sizes: string[];
-  quantity: number; // Add this
+  colors?: string[];
+  sizes?: string[];
+  quantity?: number; // Add this
 }
