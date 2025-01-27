@@ -1,4 +1,5 @@
 
+
 // 'use client';
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
@@ -48,7 +49,8 @@
 //         <div className="flex-1 relative w-full max-w-[500px] md:ml-20">
 //           <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] max-w-[400px]">
 //             <Image
-//               src={urlFor(product.image).url()}
+//               // src={urlFor(product.image).url()}
+//               src={product?.image || "/default-image.jpg"}
 //               fill
 //               alt={product.title || "Product Image"}
 //               className="rounded-xl shadow-lg object-fill"
@@ -132,7 +134,6 @@
 // };
 
 // export default ProductDetails;
-
 'use client';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -182,8 +183,7 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
         <div className="flex-1 relative w-full max-w-[500px] md:ml-20">
           <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] max-w-[400px]">
             <Image
-              // src={urlFor(product.image).url()}
-              src={product?.image || "/default-image.jpg"}
+              src={product?.image ? urlFor(product.image).url() : "/default-image.jpg"} // Updated this line
               fill
               alt={product.title || "Product Image"}
               className="rounded-xl shadow-lg object-fill"
