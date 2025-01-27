@@ -2,11 +2,11 @@
 export default interface IProduct {
   title: string;
   slug: string;
-  price?: number;
+  price: number;
   discountPrice: number;
-  description?: string;
+  description: string;
   image: string;
   colors?: string[];
   sizes?: string[];
-  quantity?: number; // Add this
+  quantity: number; // Add this
 }

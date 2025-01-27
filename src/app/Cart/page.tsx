@@ -472,7 +472,7 @@
 "use client";
 
 import Link from "next/link";
-import { IProduct } from "@/types/page";
+import  IProduct  from "@/types/page";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
