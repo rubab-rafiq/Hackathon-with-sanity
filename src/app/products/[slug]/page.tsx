@@ -109,6 +109,7 @@ const Page = async ({ params }: PageProps) => {
   //     </div>
   //   );
   // }
+  
   if (!product || !product.image) {
     return (
       <div className="text-center text-red-500 font-extrabold text-4xl p-10">
