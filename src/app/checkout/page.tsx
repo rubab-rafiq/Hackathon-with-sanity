@@ -11,10 +11,10 @@ import { CgChevronRight } from "react-icons/cg";
 import { toast } from "react-toastify";
 import Navbar from "../Components/navbar2";
 import Footer from "../Components/footer";
-
-export const getCartItems = (): IProduct[] => {
-  return JSON.parse(localStorage.getItem("cart") || "[]");
-};
+import { getCartItems } from "../functions/action";
+// export const getCartItems = (): IProduct[] => {
+//   return JSON.parse(localStorage.getItem("cart") || "[]");
+// };
 
 export default function CheckoutPage() {
   const [cartItems, setCartItems] = useState<IProduct[]>([]);
