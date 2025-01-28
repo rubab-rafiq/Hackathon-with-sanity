@@ -345,7 +345,7 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
         <div className="flex-1 relative w-full max-w-[500px] md:ml-20">
           <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] max-w-[400px]">
             <Image
-              src={product?.image ? urlFor(product.image).url() : "/default-image.jpg"} // Updated this line
+              src={urlFor(product.image).url() } // Updated this line
               fill
               alt={product.title || "Product Image"}
               className="rounded-xl shadow-lg object-fill"
