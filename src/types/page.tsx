@@ -1,5 +1,6 @@
 
 export default interface IProduct {
+  imageUrl: any;
   title: string;
   slug: string;
   price: number;
