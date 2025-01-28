@@ -446,6 +446,7 @@
 // };
 
 // export default ProductDetails;
+
 'use client';
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
@@ -454,9 +455,12 @@ import { addToWishlist, addToCart } from '@/app/functions/action';
 import IProduct from "@/types/page";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
-import { FaEye, FaHeart, FaShoppingCart } from 'react-icons/fa';
-
+import { FaEye, FaHeart,  FaShoppingCart } from 'react-icons/fa';
 const ProductDetails = ({ product }: { product: IProduct }) => {
+  if (!product) {
+    return <div>Product not found</div>;
+  }
+
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -469,16 +473,12 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
       return;
     }
 
-    console.log('Product Name:', product.title, 'Product Image:', product.image);
-    console.log('Adding to cart with color:', selectedColor, 'and size:', selectedSize);
-
     setIsLoading(true);
 
     try {
       await addToCart({ ...product, colors: [selectedColor], sizes: [selectedSize] });
       toast.success("Product added to cart successfully!");
     } catch (error) {
-      console.error("Error adding to cart:", error);
       toast.error("Failed to add product to cart!");
     } finally {
       setIsLoading(false);
@@ -490,13 +490,12 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
       addToWishlist(product);
       toast.success("Product added to wishlist successfully!");
     } catch (error) {
-      console.error("Error adding to wishlist:", error);
       toast.error("Failed to add product to wishlist!");
     }
   };
 
   return (
-    <article className="mt-12 mb-24 px-4 lg:px-24 flex flex-col gap-y-12 items-center justify-center text-center">
+    <article className="mt-12 mb-24 px-6 lg:px-24 flex flex-col gap-y-12 items-center justify-center text-center">
       {/* Toast Container */}
       <ToastContainer />
 
@@ -506,7 +505,7 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
           <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] max-w-[400px]">
             {product.image ? (
               <Image
-                src={urlFor(product.image).url() || '/default-image.jpg'} // Handle null image case
+                src={urlFor(product.image).url() || '/default-image.jpg'}
                 fill
                 alt={product.title || "Product Image"}
                 className="rounded-xl shadow-lg object-fill"
@@ -539,14 +538,15 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
             </p>
           </div>
           <hr className="border border-gray-300" />
-          
-          {/* Color Options */}
-          <div className="mt-8">
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-600">
+          {/* Remaining details */}
+
+                     {/* Color Options */}
+           <div className="mt-8">
+             <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-600">
               Select Color:
             </h3>
-            <div className="flex space-x-4 mt-4 justify-center lg:justify-start">
-              {product.colors?.map((color: string, index: number) => (
+             <div className="flex space-x-4 mt-4 justify-center lg:justify-start">
+           {product.colors?.map((color: string, index: number) => (
                 <button
                   key={index}
                   className={`w-8 h-8 rounded-full border ${selectedColor === color ? "border-blue-500" : "border-gray-300"} transition transform hover:scale-105`}
@@ -589,13 +589,16 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
             </button>
             <button
               onClick={handleAddToWishlist}
-              className="bg-gray-100 p-3 rounded-[50%] shadow-md hover:bg-gray-200"
+              className="bg-gray-100 p-4 rounded-[50%] shadow-md hover:bg-gray-200"
               aria-label="Add to Wishlist"
             >
               <FaHeart className="text-gray-600" />
             </button>
-            <button className="bg-gray-100 p-3 rounded-[50%] shadow-md hover:bg-gray-200" aria-label="View Product">
+            <button className="bg-gray-100 p-4 rounded-[50%] shadow-md hover:bg-gray-200" aria-label="View Product">
               <FaEye className="text-gray-600" />
+            </button>
+            <button className="bg-gray-100 p-4 rounded-[50%] shadow-md hover:bg-gray-200" aria-label="View Product">
+              <FaShoppingCart className="text-gray-600" />
             </button>
           </div>
         </div>
@@ -604,4 +607,4 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
   );
 };
 
-export default ProductDetails;
+  export default ProductDetails
