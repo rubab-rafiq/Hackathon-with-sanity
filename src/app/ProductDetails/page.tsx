@@ -617,7 +617,337 @@
 
 
 // ///////////////////////////////////////////////////////////
-'use client';
+// 'use client';
+// import React, { useState } from 'react';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+// import { addToWishlist, addToCart } from '@/app/functions/action';
+// import IProduct from "@/types/page";
+// import { urlFor } from "@/sanity/lib/image";
+// import Image from "next/image";
+// import { FaEye, FaHeart, FaShoppingCart } from 'react-icons/fa';
+
+// const ProductDetails = ({ product }: { product: IProduct }) => {
+//   // ✅ Hooks should be declared at the top, before any return statements
+//   const [selectedColor, setSelectedColor] = useState<string | null>(null);
+//   const [selectedSize, setSelectedSize] = useState<string | null>(null);
+//   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+//   // ✅ Conditional return after hooks
+//   if (!product) {
+//     return <div>Product not found</div>;
+//   }
+
+//   const handleAddToCart = async (e: React.MouseEvent) => {
+//     e.preventDefault();
+
+//     if (!selectedColor || !selectedSize) {
+//       toast.error("Please select a color and size before adding to cart!");
+//       return;
+//     }
+
+//     setIsLoading(true);
+
+//     try {
+//       await addToCart({ ...product, colors: [selectedColor], sizes: [selectedSize] });
+//       toast.success("Product added to cart successfully!");
+//     } catch (error) {
+//       toast.error("Failed to add product to cart!");
+//     } finally {
+//       setIsLoading(false);
+//     }
+//   };
+
+//   const handleAddToWishlist = () => {
+//     try {
+//       addToWishlist(product);
+//       toast.success("Product added to wishlist successfully!");
+//     } catch (error) {
+//       toast.error("Failed to add product to wishlist!");
+//     }
+//   };
+
+//   return (
+//     <article className="mt-12 mb-24 px-6 lg:px-24 flex flex-col gap-y-12 items-center justify-center text-center">
+//       {/* Toast Container */}
+//       <ToastContainer />
+
+//       <div className="flex flex-col lg:flex-row items-center gap-8 w-full">
+//         {/* Product Image */}
+//         <div className="flex-1 relative w-full max-w-[500px] md:ml-20">
+//           <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] max-w-[400px]">
+//             {product.image ? (
+//               <Image
+//                 src={urlFor(product.image).url() || '/default-image.jpg'}
+//                 fill
+//                 alt={product.title || "Product Image"}
+//                 className="rounded-xl shadow-lg object-fill"
+//                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+//               />
+//             ) : (
+//               <div className="h-full w-full bg-gray-300 flex items-center justify-center text-white rounded-xl">
+//                 No Image Available
+//               </div>
+//             )}
+//           </div>
+//         </div>
+
+//         {/* Product Details */}
+//         <div className="flex-1 lg:w-1/2 text-left space-y-6">
+//           <h1 className="text-4xl lg:text-5xl font-extrabold text-dark dark:text-light tracking-tight">
+//             {product.title}
+//           </h1>
+//           <p className="text-md text-gray-600 dark:text-gray-800 font-light leading-relaxed">
+//             {product.description}
+//           </p>
+//           <div className="flex items-center space-x-6">
+//             <p className="text-xl font-bold text-gray-900 dark:text-gray-600">
+//               <span className="line-through text-red-500">${product.price}</span>
+//               {product.discountPrice && (
+//                 <span className="ml-2 text-green-600 text-2xl font-semibold">
+//                   ${product.discountPrice}
+//                 </span>
+//               )}
+//             </p>
+//           </div>
+//           <hr className="border border-gray-300" />
+
+//           {/* Color Options */}
+//           <div className="mt-8">
+//             <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-600">
+//               Select Color:
+//             </h3>
+//             <div className="flex space-x-4 mt-4 justify-center lg:justify-start">
+//               {product.colors?.map((color: string, index: number) => (
+//                 <button
+//                   key={index}
+//                   className={`w-8 h-8 rounded-full border ${
+//                     selectedColor === color ? "border-blue-500" : "border-gray-300"
+//                   } transition transform hover:scale-105`}
+//                   style={{ backgroundColor: color }}
+//                   onClick={() => setSelectedColor(color)}
+//                   aria-label={`Color ${color}`}
+//                 ></button>
+//               ))}
+//             </div>
+//           </div>
+
+//           {/* Size Options */}
+//           <div className="mt-8">
+//             <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-600">
+//               Select Size:
+//             </h3>
+//             <div className="flex space-x-4 mt-4">
+//               {product.sizes?.map((size: string, index: number) => (
+//                 <button
+//                   key={index}
+//                   className={`px-6 py-2 text-lg font-semibold border ${
+//                     selectedSize === size ? "border-blue-500" : "border-gray-300"
+//                   } rounded-md text-gray-700 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-transform hover:scale-105`}
+//                   onClick={() => setSelectedSize(size)}
+//                 >
+//                   {size}
+//                 </button>
+//               ))}
+//             </div>
+//           </div>
+
+//           {/* Add to Cart & Wishlist Buttons */}
+//           <div className="flex gap-4 sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mt-8">
+//             <button
+//               onClick={handleAddToCart}
+//               disabled={isLoading}
+//               className={`bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-lg font-semibold px-6 py-3 rounded-lg shadow-md 
+//                 ${isLoading ? "opacity-50 cursor-not-allowed" : "hover:scale-105 transition transform"}`}
+//               aria-label="Add to Cart"
+//             >
+//               {isLoading ? "Adding..." : "Add to Cart"}
+//             </button>
+//             <button
+//               onClick={handleAddToWishlist}
+//               className="bg-gray-100 p-4 rounded-[50%] shadow-md hover:bg-gray-200"
+//               aria-label="Add to Wishlist"
+//             >
+//               <FaHeart className="text-gray-600" />
+//             </button>
+//             <button className="bg-gray-100 p-4 rounded-[50%] shadow-md hover:bg-gray-200" aria-label="View Product">
+//               <FaEye className="text-gray-600" />
+//             </button>
+//             <button className="bg-gray-100 p-4 rounded-[50%] shadow-md hover:bg-gray-200" aria-label="View Product">
+//               <FaShoppingCart className="text-gray-600" />
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//     </article>
+//   );
+// };
+
+// export default ProductDetails;
+
+
+
+
+
+
+
+//.........................................................//
+
+// 'use client';
+// import React, { useState } from 'react';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+// import { addToWishlist, addToCart } from '@/app/functions/action';
+// import IProduct from "@/types/page";
+// import { urlFor } from "@/sanity/lib/image";
+// import Image from "next/image";
+// import { FaEye, FaHeart, FaShoppingCart } from 'react-icons/fa';
+
+// const ProductDetails = ({ product }: { product: IProduct }) => {
+//   const [selectedColor, setSelectedColor] = useState<string | null>(null);
+//   const [selectedSize, setSelectedSize] = useState<string | null>(null);
+//   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+//   if (!product) {
+//     return <div className="text-center text-red-500 text-lg font-bold">Product not found</div>;
+//   }
+
+//   const handleAddToCart = async (e: React.MouseEvent) => {
+//     e.preventDefault();
+
+//     if (!selectedColor || !selectedSize) {
+//       toast.error("Please select a color and size before adding to cart!");
+//       return;
+//     }
+
+//     setIsLoading(true);
+
+//     try {
+//       await addToCart({ ...product, colors: [selectedColor], sizes: [selectedSize] });
+//       toast.success("Product added to cart successfully!");
+//     } catch {
+//       toast.error("Failed to add product to cart!");
+//     } finally {
+//       setIsLoading(false);
+//     }
+//   };
+
+//   const handleAddToWishlist = () => {
+//     try {
+//       addToWishlist(product);
+//       toast.success("Product added to wishlist successfully!");
+//     } catch {
+//       toast.error("Failed to add product to wishlist!");
+//     }
+//   };
+
+//   return (
+//     <article className="mt-12 mb-24 px-6 lg:px-24 flex flex-col gap-y-12 items-center text-center">
+//       <ToastContainer />
+
+//       <div className="flex flex-col lg:flex-row items-center gap-8 w-full">
+//         <div className="flex-1 relative w-full max-w-[500px] md:ml-20">
+//           <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] max-w-[400px]">
+//             {product.image ? (
+//               <Image
+//                 src={urlFor(product.image).url() || '/default-image.jpg'}
+//                 fill
+//                 alt={product.title || "Product Image"}
+//                 className="rounded-xl shadow-lg object-cover"
+//                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+//               />
+//             ) : (
+//               <div className="h-full w-full bg-gray-300 flex items-center justify-center text-white rounded-xl">
+//                 No Image Available
+//               </div>
+//             )}
+//           </div>
+//         </div>
+
+//         <div className="flex-1 lg:w-1/2 text-left space-y-6">
+//           <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-dark dark:text-light">
+//             {product.title}
+//           </h1>
+//           <p className="text-md text-gray-600 dark:text-gray-400 font-light leading-relaxed">
+//             {product.description}
+//           </p>
+//           <div className="flex items-center space-x-6">
+//             <p className="text-xl font-bold text-gray-900 dark:text-gray-300">
+//               <span className="line-through text-red-500">${product.price}</span>
+//               {product.discountPrice && (
+//                 <span className="ml-2 text-green-600 text-2xl font-semibold">
+//                   ${product.discountPrice}
+//                 </span>
+//               )}
+//             </p>
+//           </div>
+//           <hr className="border border-gray-300" />
+
+//           <div className="mt-8">
+//             <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-400">
+//               Select Color:
+//             </h3>
+//             <div className="flex space-x-4 mt-4">
+//               {product.colors?.map((color, index) => (
+//                 <button
+//                   key={index}
+//                   className={`w-8 h-8 rounded-full border ${
+//                     selectedColor === color ? "border-blue-500" : "border-gray-300"
+//                   } transition transform hover:scale-105`}
+//                   style={{ backgroundColor: color }}
+//                   onClick={() => setSelectedColor(color)}
+//                 ></button>
+//               ))}
+//             </div>
+//           </div>
+
+//           <div className="mt-8">
+//             <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-400">
+//               Select Size:
+//             </h3>
+//             <div className="flex space-x-4 mt-4">
+//               {product.sizes?.map((size, index) => (
+//                 <button
+//                   key={index}
+//                   className={`px-6 py-2 text-lg font-semibold border ${
+//                     selectedSize === size ? "border-blue-500" : "border-gray-300"
+//                   } rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-transform hover:scale-105`}
+//                   onClick={() => setSelectedSize(size)}
+//                 >
+//                   {size}
+//                 </button>
+//               ))}
+//             </div>
+//           </div>
+
+//           <div className="flex gap-4 sm:flex-row mt-8">
+//             <button
+//               onClick={handleAddToCart}
+//               disabled={isLoading}
+//               className={`bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-lg font-semibold px-6 py-3 rounded-lg shadow-md ${
+//                 isLoading ? "opacity-50 cursor-not-allowed" : "hover:scale-105 transition transform"
+//               }`}
+//             >
+//               {isLoading ? "Adding..." : "Add to Cart"}
+//             </button>
+//             <button onClick={handleAddToWishlist} className="bg-gray-100 p-4 rounded-full shadow-md hover:bg-gray-200">
+//               <FaHeart className="text-gray-600" />
+//             </button>
+//             <button className="bg-gray-100 p-4 rounded-full shadow-md hover:bg-gray-200">
+//               <FaEye className="text-gray-600" />
+//             </button>
+//             <button className="bg-gray-100 p-4 rounded-full shadow-md hover:bg-gray-200">
+//               <FaShoppingCart className="text-gray-600" />
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//     </article>
+//   );
+// };
+
+// export default ProductDetails;
+'use client'
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -628,21 +958,19 @@ import Image from "next/image";
 import { FaEye, FaHeart, FaShoppingCart } from 'react-icons/fa';
 
 const ProductDetails = ({ product }: { product: IProduct }) => {
-  // ✅ Hooks should be declared at the top, before any return statements
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  // ✅ Conditional return after hooks
   if (!product) {
-    return <div>Product not found</div>;
+    return <div className="text-center text-red-500 text-lg font-bold">Product not found</div>;
   }
 
   const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
 
     if (!selectedColor || !selectedSize) {
-      toast.error("Please select a color and size before adding to cart!");
+      toast.error("Please select a color and size before adding to cart!", { position: "top-center" });
       return;
     }
 
@@ -650,9 +978,9 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
 
     try {
       await addToCart({ ...product, colors: [selectedColor], sizes: [selectedSize] });
-      toast.success("Product added to cart successfully!");
-    } catch (error) {
-      toast.error("Failed to add product to cart!");
+      toast.success("Product added to cart successfully!", { position: "top-center" });
+    } catch {
+      toast.error("Failed to add product to cart!", { position: "top-center" });
     } finally {
       setIsLoading(false);
     }
@@ -661,19 +989,17 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
   const handleAddToWishlist = () => {
     try {
       addToWishlist(product);
-      toast.success("Product added to wishlist successfully!");
-    } catch (error) {
-      toast.error("Failed to add product to wishlist!");
+      toast.success("Product added to wishlist successfully!", { position: "bottom-center" });
+    } catch {
+      toast.error("Failed to add product to wishlist!", { position: "bottom-center" });
     }
   };
 
   return (
-    <article className="mt-12 mb-24 px-6 lg:px-24 flex flex-col gap-y-12 items-center justify-center text-center">
-      {/* Toast Container */}
+    <article className="mt-12 mb-24 px-6 lg:px-24 flex flex-col gap-y-12 items-center text-center">
       <ToastContainer />
-
+      
       <div className="flex flex-col lg:flex-row items-center gap-8 w-full">
-        {/* Product Image */}
         <div className="flex-1 relative w-full max-w-[500px] md:ml-20">
           <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] max-w-[400px]">
             {product.image ? (
@@ -681,7 +1007,7 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
                 src={urlFor(product.image).url() || '/default-image.jpg'}
                 fill
                 alt={product.title || "Product Image"}
-                className="rounded-xl shadow-lg object-fill"
+                className="rounded-xl shadow-lg object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             ) : (
@@ -692,16 +1018,15 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
           </div>
         </div>
 
-        {/* Product Details */}
         <div className="flex-1 lg:w-1/2 text-left space-y-6">
-          <h1 className="text-4xl lg:text-5xl font-extrabold text-dark dark:text-light tracking-tight">
+          <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-dark dark:text-light">
             {product.title}
           </h1>
-          <p className="text-md text-gray-600 dark:text-gray-800 font-light leading-relaxed">
+          <p className="text-md text-gray-600 dark:text-gray-400 font-light leading-relaxed">
             {product.description}
           </p>
           <div className="flex items-center space-x-6">
-            <p className="text-xl font-bold text-gray-900 dark:text-gray-600">
+            <p className="text-xl font-bold text-gray-900 dark:text-gray-300">
               <span className="line-through text-red-500">${product.price}</span>
               {product.discountPrice && (
                 <span className="ml-2 text-green-600 text-2xl font-semibold">
@@ -712,38 +1037,31 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
           </div>
           <hr className="border border-gray-300" />
 
-          {/* Color Options */}
           <div className="mt-8">
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-600">
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-400">
               Select Color:
             </h3>
-            <div className="flex space-x-4 mt-4 justify-center lg:justify-start">
-              {product.colors?.map((color: string, index: number) => (
+            <div className="flex space-x-4 mt-4">
+              {product.colors?.map((color, index) => (
                 <button
                   key={index}
-                  className={`w-8 h-8 rounded-full border ${
-                    selectedColor === color ? "border-blue-500" : "border-gray-300"
-                  } transition transform hover:scale-105`}
+                  className={`w-8 h-8 rounded-full border ${selectedColor === color ? "border-blue-500" : "border-gray-300"} transition-transform hover:scale-105`}
                   style={{ backgroundColor: color }}
                   onClick={() => setSelectedColor(color)}
-                  aria-label={`Color ${color}`}
                 ></button>
               ))}
             </div>
           </div>
 
-          {/* Size Options */}
           <div className="mt-8">
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-600">
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-400">
               Select Size:
             </h3>
             <div className="flex space-x-4 mt-4">
-              {product.sizes?.map((size: string, index: number) => (
+              {product.sizes?.map((size, index) => (
                 <button
                   key={index}
-                  className={`px-6 py-2 text-lg font-semibold border ${
-                    selectedSize === size ? "border-blue-500" : "border-gray-300"
-                  } rounded-md text-gray-700 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-transform hover:scale-105`}
+                  className={`px-6 py-2 text-lg font-semibold border ${selectedSize === size ? "border-blue-500" : "border-gray-300"} rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-transform hover:scale-105`}
                   onClick={() => setSelectedSize(size)}
                 >
                   {size}
@@ -752,28 +1070,21 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
             </div>
           </div>
 
-          {/* Add to Cart & Wishlist Buttons */}
-          <div className="flex gap-4 sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mt-8">
+          <div className="flex gap-4 sm:flex-row mt-8">
             <button
               onClick={handleAddToCart}
               disabled={isLoading}
-              className={`bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-lg font-semibold px-6 py-3 rounded-lg shadow-md 
-                ${isLoading ? "opacity-50 cursor-not-allowed" : "hover:scale-105 transition transform"}`}
-              aria-label="Add to Cart"
+              className={`bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-lg font-semibold px-6 py-3 rounded-lg shadow-md ${isLoading ? "opacity-50 cursor-not-allowed" : "hover:scale-105 transition-transform"}`}
             >
               {isLoading ? "Adding..." : "Add to Cart"}
             </button>
-            <button
-              onClick={handleAddToWishlist}
-              className="bg-gray-100 p-4 rounded-[50%] shadow-md hover:bg-gray-200"
-              aria-label="Add to Wishlist"
-            >
+            <button onClick={handleAddToWishlist} className="bg-gray-100 p-4 rounded-full shadow-md hover:bg-gray-200">
               <FaHeart className="text-gray-600" />
             </button>
-            <button className="bg-gray-100 p-4 rounded-[50%] shadow-md hover:bg-gray-200" aria-label="View Product">
+            <button className="bg-gray-100 p-4 rounded-full shadow-md hover:bg-gray-200">
               <FaEye className="text-gray-600" />
             </button>
-            <button className="bg-gray-100 p-4 rounded-[50%] shadow-md hover:bg-gray-200" aria-label="View Product">
+            <button className="bg-gray-100 p-4 rounded-full shadow-md hover:bg-gray-200">
               <FaShoppingCart className="text-gray-600" />
             </button>
           </div>
