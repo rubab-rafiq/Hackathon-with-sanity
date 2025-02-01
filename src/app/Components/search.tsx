@@ -157,27 +157,60 @@ const Search = () => {
   }, []);
 
   // Handle search input and filter products
-  const handleSearch = (e: any) => {
-    const term = e.target.value;
-    setSearchTerm(term);
+  // const handleSearch = (e: any) => {
+  //   const term = e.target.value;
+  //   setSearchTerm(term);
 
-    if (term.trim() === "") {
-      setFilteredProducts([]);
-      return;
-    }
+  //   if (term.trim() === "") {
+  //     setFilteredProducts([]);
+  //     return;
+  //   }
 
-    const results = products.filter((product) =>
-      product.title.toLowerCase().includes(term.toLowerCase())
-    );
-    setFilteredProducts(
-      results.map((product) => ({
-        title: product.title,
-        imageUrl: product.image,
-        // Check if slug is an object and use .current, otherwise use slug as it is
-        slug: typeof product.slug === "object" && product.slug !== null ? product.slug.current : product.slug,
-      }))
-    );
-  };
+  //   const results = products.filter((product) =>
+  //     product.title.toLowerCase().includes(term.toLowerCase())
+  //   );
+  //   setFilteredProducts(
+  //     results.map((product) => ({
+  //       title: product.title,
+  //       imageUrl: product.image,
+  //       // Check if slug is an object and use .current, otherwise use slug as it is
+  //       slug: typeof product.slug === "object" && product.slug !== null ? product.slug.current : product.slug,
+  //     }))
+  //   );
+  // };
+// Ensure that your Iproduct type is correct for `slug`
+interface Iproduct {
+  title: string;
+  image: any;
+  slug: { current: string } | string; // Define slug to be either an object with current or a string
+}
+
+// Handle search input and filter products
+const handleSearch = (e: any) => {
+  const term = e.target.value;
+  setSearchTerm(term);
+
+  if (term.trim() === "") {
+    setFilteredProducts([]);
+    return;
+  }
+
+  const results = products.filter((product) =>
+    product.title.toLowerCase().includes(term.toLowerCase())
+  );
+
+  setFilteredProducts(
+    results.map((product) => ({
+      title: product.title,
+      imageUrl: product.image,
+      // Check if slug is an object with a current property
+      slug:
+        typeof product.slug === "object" && product.slug !== null
+          ? product.slug.current
+          : product.slug,
+    }))
+  );
+};
 
   // Navigate to product detail page on click
   const handleProductClick = (slug: string) => {
