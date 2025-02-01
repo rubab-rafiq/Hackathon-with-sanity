@@ -117,7 +117,6 @@
 // };
 
 // export default Search;
-
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -139,6 +138,7 @@ const Search = () => {
   }[]>([]);
   const router = useRouter();
 
+  // Fetch products from Sanity CMS
   useEffect(() => {
     const fetchData = async () => {
       const fetchedProducts = await client.fetch(
@@ -153,15 +153,17 @@ const Search = () => {
 
     fetchData();
   }, []);
+
+  // Handle search input and filter products
   const handleSearch = (e: any) => {
     const term = e.target.value;
     setSearchTerm(term);
-  
+
     if (term.trim() === "") {
       setFilteredProducts([]);
       return;
     }
-  
+
     const results = products.filter((product) =>
       product.title.toLowerCase().includes(term.toLowerCase())
     );
@@ -169,11 +171,13 @@ const Search = () => {
       results.map((product) => ({
         title: product.title,
         imageUrl: product.image,
-        slug: typeof product.slug === "object" ? product.slug.current : product.slug, // Check if it's an object and use .current
+        // Check if slug is an object and use .current, otherwise use slug as it is
+        slug: typeof product.slug === "object" ? product.slug.current : product.slug,
       }))
     );
   };
-  
+
+  // Navigate to product detail page on click
   const handleProductClick = (slug: string) => {
     router.push(`/products/${slug}`); // Navigate using slug
   };
