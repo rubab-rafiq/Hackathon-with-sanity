@@ -686,7 +686,8 @@ export default function CheckoutPage() {
           {cartItems.length > 0 ? (
             cartItems.map((item) => (
               <div
-                key={item.slug}
+                // key={item.slug}
+                key={typeof item.slug === 'object' ? item.slug.current : item.slug} 
                 className="flex items-center gap-4 py-3 border-b last:border-none"
               >
                 <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100">
