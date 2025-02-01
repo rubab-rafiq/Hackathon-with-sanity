@@ -2,7 +2,7 @@
 export default interface IProduct {
   imageUrl: string;
   title: string;
-  slug: string | any;
+  slug: string ;
   price: number;
   discountPrice: number;
   description: string;
