@@ -11,3 +11,13 @@ export default interface IProduct {
   sizes?: string[];
   quantity: number; // Add this
 }
+export type Tproduct= {
+  [x: string]: any;
+  title: string;
+  description: string;
+  discountedprice: number;
+  price: number;
+  imageUrl: string;
+  id:number;
+  category?:string;
+}
