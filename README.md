@@ -25,12 +25,12 @@ Bandage E-Commerce is a modern online shopping platform designed to provide a se
 
 1. **Clone the repository:**  
    ```bash
-   git clone https://github.com/your-username/bandage-ecommerce.git
+   https://github.com/rubab-rafiq/Hackathon-with-sanity.git
    ```
 
 2. **Navigate to the project directory:**  
    ```bash
-   cd bandage-ecommerce
+   cd Hackathon-with-sanity.git
    ```
 
 3. **Install dependencies:**  
