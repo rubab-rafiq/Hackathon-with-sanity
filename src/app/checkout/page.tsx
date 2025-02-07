@@ -8,7 +8,7 @@ import Link from "next/link";
  import IProduct from "@/types/page";
  import { urlFor } from "@/sanity/lib/image";
 import { CgChevronRight } from "react-icons/cg";
-
+import clerk from "@clerk/nextjs";
 import Navbar from "../Components/navbar2";
 import Footer from "../Components/footer";
 import { getCartItems } from "../functions/action";
@@ -375,6 +375,38 @@ export default function CheckoutPage() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -66,8 +66,6 @@ export const product = defineType({
       description: "Add the available sizes for this product (e.g., small, medium, large, etc.).",
       validation: (Rule) =>
         Rule.unique().error("Each size must be unique."),
-    }),
-  ],
+    }),],
 });
-
 export default product;
